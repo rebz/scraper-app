@@ -23,14 +23,14 @@ const scrapeSite = async site => {
         ...{
             // TODO : manage pagination key on a per site basis
             // TODO : fix issue with @rebz/scraper, it is assuming pagination is defined in the config
-            pagination: {
-                selector: 'div.prev_next',
-                handler: async (currentUri, uris) => {
-                    const url = new URL(currentUri)
-                    const newPath = uris[Object.keys(uris).filter(k => k.indexOf('Next') != -1)[0]]
-                    return newPath && url.origin+newPath
-                }
-            }
+            // pagination: {
+            //     selector: 'div.prev_next',
+            //     handler: async (currentUri, uris) => {
+            //         const url = new URL(currentUri)
+            //         const newPath = uris[Object.keys(uris).filter(k => k.indexOf('Next') != -1)[0]]
+            //         return newPath && url.origin+newPath
+            //     }
+            // }
         }
     });
 
@@ -45,4 +45,4 @@ const scrapeSite = async site => {
     
 }
 
-export { fetchSites }
+export { fetchSites, scrapeSite }
