@@ -1,16 +1,42 @@
 import low from 'lowdb'
 import FileSync from 'lowdb/adapters/FileSync'
 
-const adapter = new FileSync('data/_sites.json')
-const db = low(adapter)
-db.defaults({ bots: [], sites: [] }).write()
+const siteMixins = {
+    // limit: function(sites, count) {
+    //     // console.info('limit fn')
+    //     // console.info(sites.slice(0, count))
+    //     // if (!(!!count) || typeof count != 'number' ) return sites
+    //     return sites.slice(0, count)
+    // }
+}
 
- db._.mixin({
-    toScrape: sites => sites.filter(s => !s.is_scraped)
-})
+// App Database
+const appAdapter = new FileSync('data/app.json')
+export const dbApp = low(appAdapter)
+dbApp.defaults({ 
+    config: {
+        MAX_BOTS: 5
+    },
+    bots: []
+}).write()
 
-export default db
+// Sites to Scrape
+const sitesAdapter = new FileSync('data/sites.json')
+export const dbSites = low(sitesAdapter)
+dbSites.defaults({
+    sites: []
+}).write()
+dbSites._.mixin(siteMixins)
 
+// Sites Scraped
+const scrapedAdapter = new FileSync('data/scraped.json')
+export const dbScraped = low(scrapedAdapter)
+dbScraped.defaults({
+    sites: []
+}).write()
+dbScraped._.mixin(siteMixins)
+
+export { dbApp, dbSites, dbScraped }
 
 /*
     site structure
@@ -19,6 +45,10 @@ export default db
     uri - string
     tags - array
     selectors - object
-    has_scraped - boolean, 0
     domain - string
+    
+    created_at
+    updated_at
+    scraped_at
+    deleted_at
 */

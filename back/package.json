@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r esm index.js --ignore data/_sites.json"
+    "dev": "nodemon -r esm index.js --ignore data/**/*.json"
   },
   "author": "",
   "license": "ISC",
