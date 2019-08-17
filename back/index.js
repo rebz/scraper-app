@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 
-import { dbSites } from './lib/db'
+import { fetchSites } from './lib/scraper'
 import './lib/cron'
 
 const app = express()
@@ -10,7 +10,7 @@ app.use(cors())
 app.get(`/`, async (req, res, next) => {
 	
 	return res.json({
-    	sites: dbSites.get('sites')
+    	sites: fetchSites()
 	})
 })
 
