@@ -1,8 +1,14 @@
 import { HttpClient } from '@/services/HttpClient'
 
 const fetchSites = async () => {
-    const sites = await HttpClient.get('/').catch(err => console.error({err}))
-    return await sites.data
+    const response = await HttpClient.get('/').catch(err => console.error({err}))
+    return await response.data.sites
+}
+
+const fetchScrapedSites = async () => {
+    return []
+    // const response = await HttpClient.get('/').catch(err => console.error({err}))
+    // return await response.data.sites
 }
 
 const addSite = async (data) => {
@@ -30,5 +36,7 @@ export {
     fetchSites, 
     addSite, 
     updateSite,
-    deleteSite 
+    deleteSite,
+    
+    fetchScrapedSites
 }

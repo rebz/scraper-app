@@ -1,5 +1,6 @@
 import SitesContainer from './layouts/SitesContainer.vue'
 import SitesList from './SitesList.vue'
+import SitesScrapedList from './SitesScrapedList.vue'
 import SiteForm from './SiteForm.vue'
 
 export default [
@@ -17,12 +18,17 @@ export default [
                 component: SitesList
             },
             {
-                path: "/create",
+                path: "scraped",
+                name: 'sites.scraped',
+                component: SitesScrapedList
+            },
+            {
+                path: "create",
                 name: 'sites.create',
                 component: SiteForm
             },
             {
-                path: "/edit/:siteId",
+                path: "edit/:siteId",
                 name: 'sites.edit',
                 component: SiteForm,
                 beforeRouteEnter (to, from, next) {

@@ -1,36 +1,31 @@
 <template>
+    
     <div>
-		app
-		<nav>
+	
+    	<nav class="MainNav">
+            
             <router-link :to="{ name: 'dashboard' }">
-                dashboard
+                Dashboard
             </router-link>
+            
             <router-link :to="{ name: 'sites' }">
-                list
+                Sites
             </router-link>
+            
             <router-link :to="{ name: 'settings' }">
-                settings
+                Settings
             </router-link>
+        
         </nav>
-		<router-view />
-	</div>
+		
+        <router-view />
+	
+    </div>
+
 </template>
 
 <script>
-	import { fetchSites } from '@/services/SitesService.js'
 	export default {
-		mounted() {
-			this.init()
-		},
-		data: () => ({
-			sites: null
-		}),
-		methods: {
-			fetchSites,
-			async init() {
-				this.sites = await this.fetchSites()
-			}
-		}
 	}
 </script>
 

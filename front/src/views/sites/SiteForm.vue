@@ -1,15 +1,32 @@
 <template>
     <div>
 
-        create site
+        <h1>
+            create/edit site
+        </h1>
 
         <form @submit.prevent>
 
-            <input v-model="form.uri" />
+            <div class="row">
+                <div class="col-xs-12">
+                    <label>uri</label><br>
+                    <input v-model="form.uri" />
+                </div>
+            </div>
 
-            <input v-model="form.tags" />
+            <div class="row">
+                <div class="col-xs-12">
+                    <label>tags</label><br>
+                    <input v-model="form.tags" />
+                </div>
+            </div>
 
-            <input v-model="form.selectors" />
+            <div class="row">
+                <div class="col-xs-12">
+                    <label>selectors</label><br>
+                    <input v-model="form.selectors" />
+                </div>
+            </div>
 
             <button @click="submitForm">
                 submit

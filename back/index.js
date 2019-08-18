@@ -8,10 +8,8 @@ const app = express()
 app.use(cors())
 
 app.get(`/`, async (req, res, next) => {
-	
-	return res.json({
-    	sites: fetchSites()
-	})
+	const sites = fetchSites()
+	return res.status(200).json({ sites })
 })
 
 app.listen(3037, () => console.log(`server: http://localhost:3037`))

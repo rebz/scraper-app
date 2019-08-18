@@ -1,18 +1,27 @@
 <template>
+    
     <div>
 
-        <nav>
+        <nav class="SubNav">
+            
             <router-link :to="{ name: 'sites' }">
-                list
+                Sites
             </router-link>
+
+            <router-link :to="{ name: 'sites.scraped' }">
+                Scraped
+            </router-link>
+
             <router-link :to="{ name: 'sites.create' }">
-                create
+                Create
             </router-link>
+
         </nav>
 
         <router-view />
 
     </div>
+
 </template>
 
 <script>
