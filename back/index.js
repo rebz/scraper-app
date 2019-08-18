@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 
 import { fetchSites } from './lib/scraper'
-import './lib/cron'
+// import './lib/cron'
 
 const app = express()
 app.use(cors())
