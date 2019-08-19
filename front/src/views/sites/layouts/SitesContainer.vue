@@ -4,7 +4,7 @@
 
         <nav class="SubNav">
             
-            <router-link :to="{ name: 'sites' }">
+            <router-link :to="{ name: 'sites' }" exact>
                 Sites
             </router-link>
 

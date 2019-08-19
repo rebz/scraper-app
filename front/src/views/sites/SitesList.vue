@@ -21,7 +21,7 @@
 </template>
 
 <script>
-	import { fetchSites } from '@/services/SitesService.js'
+	import { fetchSites } from '@/services/SiteService.js'
 	export default {
 		mounted() {
 			this.init()

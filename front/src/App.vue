@@ -4,7 +4,7 @@
 	
     	<nav class="MainNav">
             
-            <router-link :to="{ name: 'dashboard' }">
+            <router-link :to="{ name: 'dashboard' }" exact>
                 Dashboard
             </router-link>
             

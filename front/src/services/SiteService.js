@@ -5,17 +5,10 @@ const fetchSites = async () => {
     return await response.data.sites
 }
 
-const fetchScrapedSites = async () => {
-    return []
-    // const response = await HttpClient.get('/').catch(err => console.error({err}))
-    // return await response.data.sites
-}
-
-const addSite = async (data) => {
-    console.info({
-        action: 'addSite',
-        data
-    })
+const addSite = async (payload) => {
+    debugger
+    const response = await HttpClient.post('/sites/create', payload)
+    return response
 }
 
 const updateSite = async (site) => {
@@ -33,10 +26,8 @@ const deleteSite = async (siteId) => {
 }
 
 export { 
-    fetchSites, 
+    fetchSites,
     addSite, 
     updateSite,
     deleteSite,
-    
-    fetchScrapedSites
 }

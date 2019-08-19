@@ -23,7 +23,7 @@
 </template>
 
 <script>
-	// import { fetchScrapedSites } from '@/services/SitesService.js'
+	// import { fetchScrapedSites } from '@/services/SiteService.js'
 	export default {
 		// mounted() {
 		// 	this.init()
